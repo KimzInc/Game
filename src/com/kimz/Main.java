@@ -5,9 +5,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
-private static Map<Integer,Location> locations = new HashMap<Integer, Location>();
+private static final Map<Integer,Location> locations = new HashMap<>();
+private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
 
         locations.put(0,new Location(0, "You are sitting in front of a computer learning Java"));
         locations.put(1, new Location(1, "You are standing at the end of a road before a small brick building"));
@@ -35,16 +36,16 @@ private static Map<Integer,Location> locations = new HashMap<Integer, Location>(
         locations.get(5).addExit("S", 1);
         locations.get(5).addExit("W", 2);
 
+        command();
+    }
+
+    public static void command(){
         Map<String, String> vocabulary = new HashMap<>();
         vocabulary.put("QUIT", "Q");
         vocabulary.put("NORTH", "N");
         vocabulary.put("SOUTH", "S");
         vocabulary.put("WEST", "W");
         vocabulary.put("EAST", "E");
-
-
-
-
 
         int loc = 1;
         while(true) {
